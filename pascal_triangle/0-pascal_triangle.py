@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 def pascal_triangle(n):
+    """calcs pascal_triangle for n
+
+    Args:
+        n (int): size
+
+    Returns:
+        str: pascal_triangle for n
+    """
     if n <= 0:
         return []
 
