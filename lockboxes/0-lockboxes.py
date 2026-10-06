@@ -14,7 +14,7 @@ def canUnlockAll(boxes):
     
     keys = {0}
     checking = True
-    for loop in range(len(boxes) ** 2):
+    for loop in range((len(boxes) ** 2) / 2):
         for i, box in enumerate(boxes):
             if i in keys:
                 for key in box:
