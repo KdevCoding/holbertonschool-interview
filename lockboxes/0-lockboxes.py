@@ -12,16 +12,20 @@ def canUnlockAll(boxes):
         bool: True if all boxes unlocked
     """
 
-    keys = {0}
+    keys: set[int] = {0}
+    boxesopened = set()
     while True:
         lenkey = len(keys)
         for i, box in enumerate(boxes):
-            if i in keys:
-                for key in box:
-                    keys.add(key)
+            if i not in boxesopened:
+                if i in keys:
+                    boxesopened.add(i)
+                    for key in box:
+                        keys.add(key)
         if lenkey == len(keys):
             break
-    return (lenkey >= len(boxes))
+    print(boxesopened)
+    return (len(boxesopened) == len(boxes))
 
 
 if __name__ == "__main__":
@@ -31,5 +35,5 @@ if __name__ == "__main__":
     boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
     print(canUnlockAll(boxes))
 
-    boxes = [ [10, 3, 8, 9, 6, 5, 8, 1], [8, 5, 3, 7, 1, 8, 6], [5, 1, 9, 1], [], [6, 6, 9, 4, 3, 2, 3, 8, 5], [9, 4], [4, 2, 5, 1, 1, 6, 4, 5, 6], [9, 5, 8, 8], [6, 2, 8, 6] ]
+    boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]] 
     print(canUnlockAll(boxes))
