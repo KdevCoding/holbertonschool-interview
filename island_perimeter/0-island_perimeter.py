@@ -17,7 +17,7 @@ def island_perimeter(grid):
             i = 0
             if col == 1:
                 try:
-                    if grid[len - 1][h] == 1:
+                    if grid[len - 1][h] == 1 and len != 0:
                         i += 1
                 except IndexError:
                     pass
@@ -27,7 +27,7 @@ def island_perimeter(grid):
                 except IndexError:
                     pass
                 try:
-                    if grid[len][h - 1] == 1:
+                    if grid[len][h - 1] == 1 and h != 0:
                         i += 1
                 except IndexError:
                     pass
@@ -36,6 +36,7 @@ def island_perimeter(grid):
                         i += 1
                 except IndexError:
                     pass
+                print(i)
                 p += 4 - i
 
     return p
