@@ -19,13 +19,23 @@ def island_perimeter(grid):
                 try:
                     if grid[len - 1][h] == 1:
                         i += 1
-                    if grid[len + 1][h] == 1:
-                        i += 1
-                    if grid[len][h - 1] == 1:
-                        i += 1
-                    if grid[len][h + 1] == 1:
-                        i += 1
-                    p += 4 - i
                 except IndexError:
                     pass
+                try:
+                    if grid[len + 1][h] == 1:
+                        i += 1
+                except IndexError:
+                    pass
+                try:
+                    if grid[len][h - 1] == 1:
+                        i += 1
+                except IndexError:
+                    pass
+                try:
+                    if grid[len][h + 1] == 1:
+                        i += 1
+                except IndexError:
+                    pass
+                p += 4 - i
+
     return p
