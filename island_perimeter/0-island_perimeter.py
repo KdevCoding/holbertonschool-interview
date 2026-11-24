@@ -36,7 +36,6 @@ def island_perimeter(grid):
                         i += 1
                 except IndexError:
                     pass
-                print(i)
                 p += 4 - i
 
     return p
