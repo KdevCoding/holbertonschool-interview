@@ -14,16 +14,18 @@ def island_perimeter(grid):
     p = 0
     for len, row in enumerate(grid):
         for h, col in enumerate(row):
+            i = 0
             if col == 1:
                 try:
-                    if grid[len - 1][h] == 0:
-                        p += 1
-                    if grid[len + 1][h] == 0:
-                        p += 1
-                    if grid[len][h - 1] == 0:
-                        p += 1
-                    if grid[len][h + 1] == 0:
-                        p += 1
+                    if grid[len - 1][h] == 1:
+                        i += 1
+                    if grid[len + 1][h] == 1:
+                        i += 1
+                    if grid[len][h - 1] == 1:
+                        i += 1
+                    if grid[len][h + 1] == 1:
+                        i += 1
+                    p += 4 - i
                 except IndexError:
                     pass
     return p
